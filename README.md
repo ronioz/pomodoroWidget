@@ -27,8 +27,8 @@ As a Computer Science project, this focuses on clean process management and OS-l
 
 1.  **Clone the Repository**
     ```bash
-    git clone git@github.com:roniosipov/pomodoro-widget.git
-    cd pomodoro-widget
+    git clone git@github.com:roniosipov/pomodoroWidget.git
+    cd pomodoroWidget
     ```
 
 2.  **Initialize the Environment**
