@@ -1,4 +1,5 @@
 import sys
+import os
 
 if sys.platform == "darwin":
     try:
@@ -10,20 +11,25 @@ if sys.platform == "darwin":
 
 import rumps
 
-WORK_SECONDS = 1500
-BREAK_SECONDS = 300
+WORK_SECONDS = 20
+BREAK_SECONDS = 20
+
+def notify(title, message, sound="Crystal"):
+    script = f'display notification "{message}" with title "{title}" sound name "{sound}"'
+    os.system(f"osascript -e '{script}'")
 
 class PomodoroApp(rumps.App):
     def __init__(self):
         super(PomodoroApp, self).__init__(name="Pomodoro", title="🍅")
 
+        self.template = "com.roniosipov.pomodoro"
         self.work = True
         self.seconds_left = WORK_SECONDS
         self.is_running = False
         self.completed_cnt = 0
         self.goal = 3
         
-        self.menu = ["Start Timer", "Stop Timer", "Reset", "Completed Today"]
+        self.menu = ["Start Timer", "Stop Timer", "Reset"]
 
     @rumps.clicked("Start Timer")
     def start_timer(self, _):
@@ -40,10 +46,6 @@ class PomodoroApp(rumps.App):
         self.work = True
         self.title = "🍅"
 
-    @rumps.clicked("Completed Today")
-    def list_completed(self, _):
-        rumps.notification(title="Your Progress", subtitle="", message=f"You have completed {self.completed_cnt} Pomodoro sessions today!")
-
     @rumps.timer(1)
     def timer_start(self, _):
         if not self.is_running:
@@ -54,9 +56,9 @@ class PomodoroApp(rumps.App):
                 self.completed_cnt += 1
 
                 if self.completed_cnt >= self.goal:
-                    rumps.notification("Goal Reached!", "🏆", "You've finished 4 sessions!")
+                    notify("Goal Reached! 🏆", f"You finished {self.completed_cnt} sessions today!")
                 else:
-                    rumps.notification("Work Done", "☕️", "Time for a break!")
+                    notify("Work Done ☕️", "Time for a break.")
                 
                 self.work = False
                 self.seconds_left = BREAK_SECONDS
@@ -66,7 +68,7 @@ class PomodoroApp(rumps.App):
                 self.seconds_left = WORK_SECONDS
                 self.is_running = False
                 self.title = "🍅"
-                rumps.notification("Break is over", "🍅", "Get ready!")
+                notify("Break is over", "🍅", "Get ready!")
 
             return
 
