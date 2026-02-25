@@ -27,7 +27,7 @@ As a Computer Science project, this focuses on clean process management and OS-l
 
 1.  **Clone the Repository**
     ```bash
-    git clone git@github.com:roniosipov/pomodoroWidget.git
+    git clone git@github.com:ronioz/pomodoroWidget.git
     cd pomodoroWidget
     ```
 
@@ -43,7 +43,7 @@ As a Computer Science project, this focuses on clean process management and OS-l
     python3 main.py
     ```
 
-## 4. Project Structure
+## 5. Project Structure
 * `main.py`: Core application logic and UI event loop.
 * `.gitignore`: Excludes environment binaries, Python caches, and macOS metadata.
 * `requirements.txt`: List of necessary Python dependencies.
