@@ -27,7 +27,7 @@ As a Computer Science project, this focuses on clean process management and OS-l
 
 1.  **Clone the Repository**
     ```bash
-    git clone git@github.com:ronioz/pomodoroWidget.git
+    git clone https://github.com/ronioz/pomodoroWidget
     cd pomodoroWidget
     ```
 
