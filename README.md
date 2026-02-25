@@ -43,15 +43,8 @@ As a Computer Science project, this focuses on clean process management and OS-l
     python3 main.py
     ```
 
-## 5. Background Execution
-To run the widget as a permanent utility without an active terminal session:
-1.  Make the launcher script executable: `chmod +x run_pomodoro.sh`
-2.  Run the script: `./run_pomodoro.sh`
-3.  (Optional) Wrap the script in a macOS Automator "Application" for one-click launching.
-
-## 6. Project Structure
+## 4. Project Structure
 * `main.py`: Core application logic and UI event loop.
-* `run_pomodoro.sh`: Shell script for detached background execution.
 * `.gitignore`: Excludes environment binaries, Python caches, and macOS metadata.
 * `requirements.txt`: List of necessary Python dependencies.
 
