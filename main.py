@@ -1,3 +1,13 @@
+import sys
+
+if sys.platform == "darwin":
+    try:
+        import AppKit
+        info = AppKit.NSBundle.mainBundle().infoDictionary()
+        info['LSUIElement'] = '1'
+    except ImportError:
+        print("Install pyobjc-framework-Cocoa to hide the Dock icon.")
+
 import rumps
 
 WORK_SECONDS = 1500
