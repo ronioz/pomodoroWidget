@@ -11,8 +11,8 @@ if sys.platform == "darwin":
 
 import rumps
 
-WORK_SECONDS = 20
-BREAK_SECONDS = 20
+WORK_SECONDS = 1500
+BREAK_SECONDS = 300
 
 def notify(title, message, sound="Crystal"):
     script = f'display notification "{message}" with title "{title}" sound name "{sound}"'
@@ -22,7 +22,8 @@ class PomodoroApp(rumps.App):
     def __init__(self):
         super(PomodoroApp, self).__init__(name="Pomodoro", title="🍅")
 
-        self.template = "com.roniosipov.pomodoro"
+        notify(title="🍅", message="Pomodoro timer is ready to use")
+
         self.work = True
         self.seconds_left = WORK_SECONDS
         self.is_running = False
